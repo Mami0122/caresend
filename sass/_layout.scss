@@ -1,0 +1,201 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ヘッダー*/
+.header{
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: var(--header-height);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: #fff;
+
+  @include mq(tab){
+    height: 64px;
+  }
+}
+.header__inner{
+  flex: 1;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  column-gap: 40px;
+}
+.header__logo{
+  width: rclamp(139, 227);
+}
+.header__nav{
+  flex: 1;
+  margin-left: -0.5em;
+  @include mq(1024){
+    display: none;
+  }
+}
+.header__navList{
+  display: flex;
+  justify-content: center;
+  @include mq(1240){
+    justify-content: flex-end;
+  }
+}
+.header__navListItem + .header__navListItem{
+  margin-left: 28px;
+}
+.header__navListLink{
+  display: inline-block;
+  color: $color-main;
+  font-weight: bold;
+  padding: 0.5em;
+
+  &:hover{
+    opacity: 0.7;
+  }
+}
+.header__button{
+  width: 12.3%;
+  max-width: 189px;
+  display: flex;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: $color-main;
+  font-weight: bold;
+
+  @include mq(1070){
+    width: initial;
+    aspect-ratio: 1 / 1;
+  }
+  @include mq(1024){
+    font-size: 0.625em;
+  }
+}
+.header__buttonText{
+  display: flex;
+  align-items: center;
+  font-size: rclamp(10,16);
+
+  @include mq(1070){
+    flex-direction: column;
+    row-gap: 4px;
+  }
+
+  &::before{
+    content: "";
+    display: inline-block;
+    width: 2em;
+    aspect-ratio: 1/1;
+    margin-right: 7px;
+    background: url(../images/mail.svg) no-repeat center / contain;
+    
+    @include mq(1070){
+      width: 24px;
+      margin: 0;
+    }  
+  }
+}
+
+/*モバイルメニュー*/
+
+.burgerButton{
+  aspect-ratio: 1 / 1;
+  background: #333333;
+  color: #fff;
+  font-size: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+
+  @include mq(1024){
+    display: flex;
+  }
+
+}
+.burgerButton__burgerBar{
+  width: 32px;
+  height: 1px;
+  background: #fff;
+  transform-origin: 50% 50%;
+  transition: all .25s ease-in;
+
+  & + .burgerButton__burgerBar{
+    margin-top: 9px;
+  }
+}
+.burgerButton.open {
+  .burgerButton__burgerBar.top{
+    transform: translateY(10px) rotate(45deg);
+  }
+  .burgerButton__burgerBar.middle{
+    opacity: 0;
+  }
+  .burgerButton__burgerBar.bottom{
+    transform: translateY(-10px) rotate(-45deg);
+  }
+}
+.burgerButton__text{
+  margin-top: 8px;
+}
+.mobileMenu{
+  background-color: $color-main;
+  color: #fff;
+  width: 50vw;
+  position: fixed;
+  right: 0;
+  visibility: hidden;
+  z-index: 100;
+  padding-bottom: 100px;
+  transform: translateX(100%);
+  transition: all .5s ease-in-out;
+
+  @include mq{
+    max-width: initial;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+  }
+
+  &.active{
+    top: var(--header-height);
+    transform: translateX(0);
+    visibility: visible;
+  }
+}
+.mobileMenu__listItem{
+  padding: 24px 16px;
+  border-bottom: 1px solid #fff;
+}
+.mobileMenu__listLink{
+  display: block;
+  font-weight: bold;
+}
+.mobileMenu__listLink.mobileMenu__listLink--icon::before {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  vertical-align: text-bottom;
+  margin-right: 12px;
+}
+.mobileMenu__listLink--icon.icon-mail::before{
+  width: 24px;
+  height: 24px;
+  background-image: url(../images/mail.svg);
+}
+
+/*フッター*/
+.footer{
+  padding: 28px 0 16px;
+  text-align: center;
+}
+.footer__logo {
+  margin: 0 auto;
+}
+.footer>small{
+  display: inline-block;
+  margin-top: 37px;
+}
