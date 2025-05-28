@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="<?php echo $body_class ?:  ''; ?>">
+<body class="<?php echo isset($body_class) ? $body_class : ''; ?>">
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo logo">
