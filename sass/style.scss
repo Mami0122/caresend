@@ -782,9 +782,19 @@
     aspect-ratio: 1 / 1;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     border-radius: 50%;
     background: #007FC6;
     margin-right: 24px;
+
+    &::before{
+      content: "";
+      display: inline-block;
+      width: rclamp(13, 26);
+      aspect-ratio: 1 / 1;
+      background-color: #fff;
+      mask: url(../images/iconQ.svg) no-repeat center center/ contain;
+    }
 
     @include mq(tab){
       width: calc(44px * 0.75);
@@ -794,13 +804,6 @@
       width: 32px;
       margin-right: 9px;
     }    
-  }
-
-  .icon-wrap svg {
-    width: rclamp(13,26);
-  }
-  .icon-wrap svg path {
-    fill: #fff;
   }
 
   &::before,
@@ -857,6 +860,10 @@
 
   &.active .icon-wrap {
     background: #fff;
+
+    &::before{
+      background-color: $color-main;
+    }
   }
 
   &.active .icon-wrap svg path {
