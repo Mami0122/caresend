@@ -51,6 +51,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  document.querySelectorAll('.swiper-button-prev, .swiper-button-next').forEach(button => {
+    button.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault(); // Spaceのスクロール防止
+        button.click();
+      }
+    });
+  });
+
   //FAQアコーディオンの処理
   const summaries = document.querySelectorAll('.js-faqSummary');
 
@@ -85,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if(window.innerWidth >= 768 && answer.offsetHeight >= 250 ){
           closingAnimationTiming.duration = 500;
         }else if(window.innerWidth <= 767 && answer.offsetHeight >= 500){
-          closingAnimationTiming.duration = 650;
+          closingAnimationTiming.duration = 700;
         }else{
           closingAnimationTiming.duration = 300;
         }
