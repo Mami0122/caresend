@@ -1,0 +1,19 @@
+# node modules (npm install で再生成される)
+node_modules/
+
+# Sassのコンパイル後のファイル
+*.css.map
+
+# OS固有の不要ファイル
+.DS_Store
+Thumbs.db
+
+# エディタの設定ファイル
+.vscode/
+
+# ログ・キャッシュ系
+npm-debug.log*
+*.log
+
+# PHPキャッシュ
+*.php~
