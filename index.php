@@ -272,71 +272,89 @@ require_once 'header.php';
 <section class="section section-faq wow fadeIn" id="section-faq">
   <div class="inner">
     <h2 class="headingLevel2 wow fadeIn">よくある質問</h2>
-    <dl class="section-faq__faqList">
-      <!-- 質問1 -->
-      <dt class="section-faq__question wow fadeIn">
-        <div class="icon-wrap"></div>
-        登録介護士はどこから確認できますか？
-      </dt>
-      <dd class="section-faq__answer">CareSendのウェブサイトやアプリを通じて確認することができます。</dd>
-      <!-- 質問2 -->
-      <dt class="section-faq__question wow fadeIn">
-        <div class="icon-wrap"></div>
-        派遣可能エリアはどのようになっていますか
-      </dt>
-      <dd class="section-faq__answer">
-        現在、全国の主要都市や地方都市を含む、多くの都道府県でサービスが展開されています。ただし、派遣可能なエリアは随時拡大されているため、最新の情報は資料請求してご確認ください。
-      </dd>
-      <!-- 質問3 -->
-      <dt class="section-faq__question wow fadeIn">
-        <div class="icon-wrap"></div>
-        登録介護士の資格取得などの支援は行っていますか
-      </dt>
-      <dd class="section-faq__answer">
-        はい、CareSendでは登録している介護士の資格取得などの支援も行っています。<br>
-        具体的には、以下のような支援を提供しています。<br><br>
-        <ol class="section-faq__numberedList">
-          <li>カウンセリングと情報提供：介護士が資格取得に興味を持っている場合、"CareSend"のカウンセラーが相談に乗り、必要な情報を提供します。
-          </li>
-          <li>学習サポート：介護士が資格試験を受ける準備をする際には、学習支援や勉強のアドバイスを提供します。必要に応じて、関連する教材や学習リソースの提供も行います。
-          </li>
-          <li>資格取得補助：介護士が資格試験に合格するための費用や手続きに関する支援を提供します。場合によっては、一部の費用を補助する場合もあります。
-          </li>
-          <li>研修プログラム："CareSend"が提供する研修プログラムに参加することで、介護士は専門知識やスキルを向上させることができます。これにより、彼らのキャリアの成長を支援します。
-          </li>
-        </ol>
-        <br>
-        CareSendは、介護士がより充実したキャリアを築くための支援を提供し、彼らの専門性と満足度を向上させることに取り組んでいます。
-      </dd>
-      <!-- 質問4 -->
-      <dt class="section-faq__question wow fadeIn">
-        <div class="icon-wrap"></div>
-        派遣の登録介護士を、派遣期間終了後に直接雇用することは可能ですか？
-      </dt>
-      <dd class="section-faq__answer">
-        はい、派遣期間終了後に直接雇用することは可能です。ただし、一般派遣と紹介予定派遣の場合には異なる手続きがあります。<br>
-        一般派遣の場合、介護士は派遣会社の従業員として派遣されます。派遣期間終了後に直接雇用する場合には、派遣会社と介護施設間で新たな雇用契約を締結する必要があります。この場合、派遣会社に対して雇用の手数料や補償金が発生することがあります。<br>
-        一方、紹介予定派遣の場合、介護士は派遣先で一定期間勤務した後、雇用主（派遣先の介護施設）と直接雇用契約を結ぶことができます。派遣期間終了後に直接雇用する場合、通常は派遣会社に対して雇用の手数料が支払われることがありますが、派遣期間中に雇用契約の条件が明確にされているため、一般派遣よりも手続きがスムーズです。<br>
-        要するに、一般派遣の場合は新たな雇用契約を派遣会社と介護施設間で締結する必要がありますが、紹介予定派遣の場合は介護施設と介護士との直接雇用契約に移行することができます。
-      </dd>
+    <div class="section-faq__faqList">
       <!-- 質問 -->
-      <dt class="section-faq__question wow fadeIn">
-        <div class="icon-wrap"></div>
-        CareSendはどのように介護士を選んでいますか
-      </dt>
-      <dd class="section-faq__answer">
-        CareSendでは、介護士を選ぶ際に以下の手順を通じて厳密な選考プロセスを行っています<br><br>
-        <ol class="section-faq__numberedList">
-          <li>登録プロセス：介護士は、"CareSend"のウェブサイトやアプリを通じて登録申請を行います。この際に、必要な資格や経験、専門知識などの情報が提供されます。
-          </li>
-          <li>書類審査：登録申請が受け付けられた後、"CareSend"のチームが提出された書類や情報を審査し、資格や経験の適格性を確認します。</li>
-          <li>面接：審査に合格した介護士は、面接の機会を得ます。面接では、介護の専門知識やコミュニケーション能力、応対態度などが評価されます。</li>
-          <li>スキル評価：適格な介護士は、必要に応じて実地でのスキル評価を受けることがあります。これにより、介護スキルやケアの品質を確認します。</li>
-          <li>登録完了：選考プロセスを通過した介護士は、"CareSend"の登録スタッフとして承認されます。利用者のニーズに応じて、派遣や紹介予定派遣の依頼が介護士に送られます。</li>
-        </ol>
-        <br>
-        このような厳密な選考プロセスを通じて、"CareSend"は高品質な介護スタッフを提供し、利用者の安心と満足度を確保しています。
-      </dd>
+      <details class="section-faq__faqGroup">
+        <summary class="section-faq__question js-faqSummary wow fadeIn">
+          <div class="icon-wrap"></div>
+          登録介護士はどこから確認できますか？
+        </summary>
+        <div class="section-faq__answer js-faqAnswer">
+          <p class="section-faq__answerInner">CareSendのウェブサイトやアプリを通じて確認することができます。</p>
+        </div>
+      </details>
+      <!-- 質問 -->
+      <details class="section-faq__faqGroup">
+        <summary class="section-faq__question js-faqSummary wow fadeIn">
+          <div class="icon-wrap"></div>
+          派遣可能エリアはどのようになっていますか
+        </summary>
+        <div class="section-faq__answer js-faqAnswer">
+          <p class="section-faq__answerInner">現在、全国の主要都市や地方都市を含む、多くの都道府県でサービスが展開されています。ただし、派遣可能なエリアは随時拡大されているため、最新の情報は資料請求してご確認ください。</p>
+        </div>
+      </details>
+      <!-- 質問 -->
+      <details class="section-faq__faqGroup">
+        <summary class="section-faq__question js-faqSummary wow fadeIn">
+          <div class="icon-wrap"></div>
+          登録介護士の資格取得などの支援は行っていますか
+        </summary>
+        <div class="section-faq__answer js-faqAnswer">
+          <div class="section-faq__answerInner">
+            はい、CareSendでは登録している介護士の資格取得などの支援も行っています。<br>
+            具体的には、以下のような支援を提供しています。<br><br>
+            <ol class="section-faq__numberedList">
+              <li>カウンセリングと情報提供：介護士が資格取得に興味を持っている場合、"CareSend"のカウンセラーが相談に乗り、必要な情報を提供します。
+              </li>
+              <li>学習サポート：介護士が資格試験を受ける準備をする際には、学習支援や勉強のアドバイスを提供します。必要に応じて、関連する教材や学習リソースの提供も行います。
+              </li>
+              <li>資格取得補助：介護士が資格試験に合格するための費用や手続きに関する支援を提供します。場合によっては、一部の費用を補助する場合もあります。
+              </li>
+              <li>研修プログラム："CareSend"が提供する研修プログラムに参加することで、介護士は専門知識やスキルを向上させることができます。これにより、彼らのキャリアの成長を支援します。
+              </li>
+            </ol>
+            <br>
+            CareSendは、介護士がより充実したキャリアを築くための支援を提供し、彼らの専門性と満足度を向上させることに取り組んでいます。
+          </div>
+        </div>
+      </details>
+      <!-- 質問 -->
+      <details class="section-faq__faqGroup">
+        <summary class="section-faq__question js-faqSummary wow fadeIn">
+          <div class="icon-wrap"></div>
+          派遣の登録介護士を、派遣期間終了後に直接雇用することは可能ですか？
+        </summary>
+        <div class="section-faq__answer js-faqAnswer">
+          <p class="section-faq__answerInner">
+            はい、派遣期間終了後に直接雇用することは可能です。ただし、一般派遣と紹介予定派遣の場合には異なる手続きがあります。<br>
+            一般派遣の場合、介護士は派遣会社の従業員として派遣されます。派遣期間終了後に直接雇用する場合には、派遣会社と介護施設間で新たな雇用契約を締結する必要があります。この場合、派遣会社に対して雇用の手数料や補償金が発生することがあります。<br>
+            一方、紹介予定派遣の場合、介護士は派遣先で一定期間勤務した後、雇用主（派遣先の介護施設）と直接雇用契約を結ぶことができます。派遣期間終了後に直接雇用する場合、通常は派遣会社に対して雇用の手数料が支払われることがありますが、派遣期間中に雇用契約の条件が明確にされているため、一般派遣よりも手続きがスムーズです。<br>
+            要するに、一般派遣の場合は新たな雇用契約を派遣会社と介護施設間で締結する必要がありますが、紹介予定派遣の場合は介護施設と介護士との直接雇用契約に移行することができます。
+          </p>
+        </div>
+      </details>
+      <!-- 質問 -->
+      <details class="section-faq__faqGroup">
+        <summary class="section-faq__question js-faqSummary wow fadeIn">
+          <div class="icon-wrap"></div>
+          CareSendはどのように介護士を選んでいますか
+        </summary>
+        <div class="section-faq__answer js-faqAnswer">
+          <div class="section-faq__answerInner">
+            CareSendでは、介護士を選ぶ際に以下の手順を通じて厳密な選考プロセスを行っています<br><br>
+            <ol class="section-faq__numberedList">
+              <li>登録プロセス：介護士は、"CareSend"のウェブサイトやアプリを通じて登録申請を行います。この際に、必要な資格や経験、専門知識などの情報が提供されます。
+              </li>
+              <li>書類審査：登録申請が受け付けられた後、"CareSend"のチームが提出された書類や情報を審査し、資格や経験の適格性を確認します。</li>
+              <li>面接：審査に合格した介護士は、面接の機会を得ます。面接では、介護の専門知識やコミュニケーション能力、応対態度などが評価されます。</li>
+              <li>スキル評価：適格な介護士は、必要に応じて実地でのスキル評価を受けることがあります。これにより、介護スキルやケアの品質を確認します。</li>
+              <li>登録完了：選考プロセスを通過した介護士は、"CareSend"の登録スタッフとして承認されます。利用者のニーズに応じて、派遣や紹介予定派遣の依頼が介護士に送られます。</li>
+            </ol>
+            <br>
+            このような厳密な選考プロセスを通じて、"CareSend"は高品質な介護スタッフを提供し、利用者の安心と満足度を確保しています。
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>

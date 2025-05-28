@@ -51,14 +51,66 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // faqアコーディオン
-  const questions = document.querySelectorAll('.section-faq__question');
+  //FAQアコーディオンの処理
+  const summaries = document.querySelectorAll('.js-faqSummary');
 
-  for (const q of questions) {
-    q.addEventListener('click', function () {
-      this.classList.toggle('active');
-    });
+  const openingAnimation = (element) => [
+    { height: 0, opacity: 0, },
+    { height: `${element.offsetHeight}px`, opacity: 1, }
+  ];
+
+  const closingAnimation = (element) => [
+    { height: `${element.offsetHeight}px`, opacity: 1, },
+    { height: 0, opacity: 0, },
+  ];
+
+  const closingAnimationTiming = {
+    duration: 300,
+    easing: 'ease-in'
   }
+
+  const openingAnimationTiming = {
+    duration: 300,
+    easing: 'ease-out'
+  }
+
+  summaries.forEach((summary) => {
+    summary.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const details = e.currentTarget.parentElement;
+      const answer = details.querySelector('.js-faqAnswer');
+
+      if (details.open) {
+        if(window.innerWidth >= 768 && answer.offsetHeight >= 250 ){
+          closingAnimationTiming.duration = 500;
+        }else if(window.innerWidth <= 767 && answer.offsetHeight >= 500){
+          closingAnimationTiming.duration = 650;
+        }else{
+          closingAnimationTiming.duration = 300;
+        }
+
+        const closeAnimObj = answer.animate(closingAnimation(answer), closingAnimationTiming);
+
+        closeAnimObj.onfinish = () => {
+          details.removeAttribute('open');
+        };
+
+      } else {
+        details.setAttribute('open', true);
+
+        if(window.innerWidth >= 768 && answer.offsetHeight >= 250 ){
+          openingAnimationTiming.duration = 500;
+        }else if(window.innerWidth <= 767 && answer.offsetHeight >= 500){
+          openingAnimationTiming.duration = 650;
+        }else{
+          openingAnimationTiming.duration = 300;
+        }
+        
+        answer.animate(openingAnimation(answer), openingAnimationTiming);
+      }
+    });
+  });
 
   //バーガーメニュー
   const burger = document.querySelector('.burgerButton');

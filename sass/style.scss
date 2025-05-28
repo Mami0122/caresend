@@ -760,23 +760,31 @@
   }
 }
 
+.section-faq__faqGroup + .section-faq__faqGroup {
+  margin-top: 24px;
+}
+
 .section-faq__question {
-  padding: 18px 56px 18px 36px;
+  padding: 18px 24px 18px 36px;
   background-color: #fff;
-  position: relative;
-  display: flex;
+  display: grid;
+  grid-template: 
+    "Qicon ... plusIcon"
+    /auto 1fr auto;
   align-items: center;
   border-radius: 10px;
   font-size: rclamp(14,16);
+  font-weight: bold;
   cursor: pointer;
 
   @include mq{
-    height: 64px;
-    padding: 11px 34px 11px 10px;
+    min-height: 64px;
+    padding: 11px 10px;
     line-height: 1.5;
   }
 
   .icon-wrap {
+    grid-area: Qicon;
     display: inline-flex;
     width: 44px;
     aspect-ratio: 1 / 1;
@@ -796,10 +804,6 @@
       mask: url(../images/iconQ.svg) no-repeat center center/ contain;
     }
 
-    @include mq(tab){
-      width: calc(44px * 0.75);
-    } 
-
     @include mq{
       width: 32px;
       margin-right: 9px;
@@ -808,93 +812,64 @@
 
   &::before,
   &::after{
+    grid-area: plusIcon;
     content: "";
     display: inline-block;
-    position: absolute;
-  }
-  &::before{
     width: 32px;
     border-top: 2px solid #333333;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%);
+    justify-self: end;
+
     @include mq(tab){
       width: calc(32px * 0.75);
     }
     @include mq{
       width: 16px;
-      right: 10px;
     }
   }
-  &::after{
-    height: 32px;
-    border-right: 2px solid #333333;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 40px;
-    transition: all 0.25s ease-in;
-    @include mq(tab){
-      height: calc(32px * 0.75);
-      right: 36px;
-    }
-    @include mq{
-      height: 16px;
-      right: 17px;
-    }
+  &::before{
+    margin-left: rclamp(8, 15);
   }
 
-  &.active {
+  &::after{
+    transition: rotate 0.3s;
+    rotate: 90deg;
+  }
+}
+
+.section-faq__faqGroup[open] {
+  .section-faq__question{
     background-color: $color-main;
     color: #fff;
     border-radius: 10px 10px 0 0;
+
+    &::before,
+    &::after{
+      border-top: 2px solid #fff;
+    }
+
+    &::after{
+      rotate: 180deg;
+    }
   }
 
-  &.active::before{
-    border-top: 2px solid #fff;
-  }
-
-  &.active::after{
-    border-right: 2px solid #fff;
-    display: none;
-  }
-
-  &.active .icon-wrap {
+  .icon-wrap {
     background: #fff;
 
     &::before{
       background-color: $color-main;
     }
   }
-
-  &.active .icon-wrap svg path {
-    fill: $color-main;
-  }
-  .section-faq__answer + & {
-    margin-top: 24px;
-  }
 }
 
-.section-faq__answer {
+.section-faq__answerInner {
   background-color: #fff;
   padding: 24px 36px;
   border-radius: 0 0 10px 10px;
   min-height: 80px;
-  display: flex;
-  align-items: center;
   line-height: 1.8;
-  transition: all 0.75s ease-in 0.1s;
-  display: none;
-  height: 0;
-  transform: translateY(-100%);
   
   @include mq{
     padding: 10px;
-  }
-  .section-faq__question.active + &{
-    display: block;
-    top: 0;
-    height: auto;
-    transform: translateY(0);
   }
 }
 .section-faq__numberedList{
