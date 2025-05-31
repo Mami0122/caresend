@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
 }
 
 :root {
@@ -251,6 +252,10 @@ a, button {
 .footer > small {
   display: inline-block;
   margin-top: 37px;
+}
+
+body:has(.mobileMenu.active) {
+  overflow: hidden;
 }
 
 .section {

@@ -3,6 +3,10 @@
 @use "base";
 @use "layout";
 
+body:has(.mobileMenu.active){
+  overflow: hidden;
+}
+
 .section{
   padding-top: 96px;
 
