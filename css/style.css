@@ -151,7 +151,6 @@ a, button {
   background: #333333;
   color: #fff;
   font-size: 0.625rem;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -168,7 +167,8 @@ a, button {
   width: 32px;
   height: 1px;
   background: #fff;
-  transition: all 0.5s;
+  transform-origin: 50% 50%;
+  transition: all 0.25s ease-in;
 }
 .burgerButton__burgerBar + .burgerButton__burgerBar {
   margin-top: 9px;

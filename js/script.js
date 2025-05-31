@@ -127,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   burger.addEventListener('click', function () {
     this.classList.toggle('open');
-    console.log ('clicked');
 
     if (this.classList.contains('open')) {
       mobileMenu.classList.add('active');
@@ -135,22 +134,35 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileMenu.setAttribute('aria-hidden', false);
       this.setAttribute('aria-label', 'メニューを閉じる');
     } else {
-      mobileMenu.classList.remove('active');
-      this.setAttribute('aria-expanded', false);
-      mobileMenu.setAttribute('aria-hidden', true);
-      this.setAttribute('aria-label', 'メニューを開く');
+      closeMobileMenu();
     }
   });
+
+  function closeMobileMenu(){
+    mobileMenu.classList.remove('active');
+    burger.setAttribute('aria-expanded', false);
+    mobileMenu.setAttribute('aria-hidden', true);
+    burger.setAttribute('aria-label', 'メニューを開く');
+  }
+
+    const mediaQueryList = window.matchMedia('(width  > 1024px)');
+
+    mediaQueryList.addEventListener('change', (e)=>{
+      if(e.matches && mobileMenu.classList.contains('active')){
+       closeMobileMenu();
+       burger.classList.remove('open');
+      }
+    });
 
   const mobileMenuItems = document.querySelectorAll('.mobileMenu__listItem');
 
   for (const MobileMenuItem of mobileMenuItems) {
     MobileMenuItem.addEventListener('click', function () {
       mobileMenu.classList.remove('active');
-      burger.classList.remove('open');
+      burger.classList.remove('open'); 
     })
   }
-
+ 
   // フォーム
   const forms = document.querySelectorAll('.form');
   forms.forEach((form)=>{
