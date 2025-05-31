@@ -133,7 +133,7 @@ require_once 'header.php';
     <div class="section-about__imgBg wow fadeIn">
       <picture>
         <source class="section-about__img" srcset="images/about-sp.png" media="(max-width: 767px)">
-        <img class="section-about__img" src="images/about.png" alt="">
+        <img class="section-about__img" src="images/about.png" alt="派遣依頼のご相談後、登録者50,000人越えのデータベースから面談の上、派遣。紹介予定派遣の場合、マッチすれば正社員雇用も可能。">
       </picture>
     </div>
   </div>
@@ -366,7 +366,7 @@ require_once 'header.php';
         <p class="section-form__text">CareSendに興味をお持ち頂き、ありがとうございます。<br>
           本フォームを送信頂きますと、サービス資料を送付させていただきます。
         </p>
-        <img src="images/whitepaper.png" alt="" class="section-form__image wow fadeIn">
+        <img src="images/whitepaper.png" class="section-form__image wow fadeIn" alt="サービス資料の一部の画像。業務改善事例や介護派遣導入事例が掲載。">
       </div>
       <form id="form2" action="process-form.php" class="section-form__form form" method="POST">
         <p class="form__lead">派遣事例が分かる資料をダウンロード!!</p>
