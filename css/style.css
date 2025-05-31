@@ -245,6 +245,7 @@ a, button {
 }
 
 .footer__logo {
+  width: 227px;
   margin: 0 auto;
 }
 
@@ -275,10 +276,6 @@ body:has(.mobileMenu.active) {
   .inner {
     padding: 0 16px;
   }
-}
-
-.logo {
-  width: 227px;
 }
 
 .logo a {
