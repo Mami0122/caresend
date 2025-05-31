@@ -168,21 +168,20 @@ a, button {
   width: 32px;
   height: 1px;
   background: #fff;
-  transform-origin: 50% 50%;
-  transition: all 0.25s ease-in;
+  transition: all 0.5s;
 }
 .burgerButton__burgerBar + .burgerButton__burgerBar {
   margin-top: 9px;
 }
 
 .burgerButton.open .burgerButton__burgerBar.top {
-  transform: translateY(10px) rotate(45deg);
+  transform: translateY(10px) rotate(-45deg);
 }
 .burgerButton.open .burgerButton__burgerBar.middle {
   opacity: 0;
 }
 .burgerButton.open .burgerButton__burgerBar.bottom {
-  transform: translateY(-10px) rotate(-45deg);
+  transform: translateY(-10px) rotate(45deg);
 }
 
 .burgerButton__text {

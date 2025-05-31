@@ -129,13 +129,13 @@
 }
 .burgerButton.open {
   .burgerButton__burgerBar.top{
-    transform: translateY(10px) rotate(45deg);
+    transform: translateY(10px) rotate(-45deg);
   }
   .burgerButton__burgerBar.middle{
     opacity: 0;
   }
   .burgerButton__burgerBar.bottom{
-    transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-10px) rotate(45deg);
   }
 }
 .burgerButton__text{
