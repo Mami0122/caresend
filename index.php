@@ -41,28 +41,35 @@ require_once 'header.php';
       </div>
     </div>
     <form id="form1" action="process-form.php" class="mv__form form" method="POST">
+      <?php
+        if(isset($_SESSION['fld_sectionID']) && $_SESSION['fld_sectionID'] == 'mv'){
+           $redirected_to_form1 = true;
+        }else{
+          $redirected_to_form1 =  false;
+        }
+      ?>
       <p class="form__lead">派遣事例が分かる資料をダウンロード!!</p>
       <div class="form__twoInputGroup">
         <div class="form__inputGroup w-50">
           <label for="fld_lastName" class="form__label">姓</label>
-          <input type="text" name="fld_lastName" id="fld_lastName" class="form__input" value="<?= $_SESSION['fld_lastName'] ?? '' ?>" autocomplete="family-name">
+          <input type="text" name="fld_lastName" id="fld_lastName" class="form__input" value="<?= $redirected_to_form1 && isset($_SESSION['fld_lastName']) ? $_SESSION['fld_lastName'] : '' ?>" autocomplete="family-name">
         </div>
         <div class="form__inputGroup w-50">
           <label for="fld_firstName" class="form__label">名</label>
-          <input type="text" name="fld_firstName" id="fld_firstName" class="form__input" value="<?= $_SESSION['fld_firstName'] ?? '' ?>" autocomplete="given-name">
+          <input type="text" name="fld_firstName" id="fld_firstName" class="form__input" value="<?= $redirected_to_form1 && isset($_SESSION['fld_firstName']) ? $_SESSION['fld_firstName'] : '' ?>" autocomplete="given-name">
         </div>
       </div>
       <div class="form__inputGroup">
         <label for="fld_company" class="form__label">会社名</label>
-        <input type="text" name="fld_company" id="fld_company" class="form__input" value="<?= $_SESSION['fld_company'] ?? '' ?>" autocomplete="organization">
+        <input type="text" name="fld_company" id="fld_company" class="form__input" value="<?= $redirected_to_form1 && isset($_SESSION['fld_company']) ? $_SESSION['fld_company'] : '' ?>" autocomplete="organization">
       </div>
       <div class="form__inputGroup">
         <label for="fld_email" class="form__label">メールアドレス</label>
-        <input type="email" name="fld_email" id="fld_email" class="form__input" value="<?= $_SESSION['fld_email'] ?? '' ?>" autocomplete="email">
+        <input type="email" name="fld_email" id="fld_email" class="form__input" value="<?= $redirected_to_form1 && isset($_SESSION['fld_email']) ? $_SESSION['fld_email'] : '' ?>" autocomplete="email">
       </div>
       <div class="form__inputGroup">
         <label for="fld_tel" class="form__label">電話番号</label>
-        <input type="tel" name="fld_tel" id="fld_tel" class="form__input" value="<?= $_SESSION['fld_tel'] ?? '' ?>" autocomplete="tel">
+        <input type="tel" name="fld_tel" id="fld_tel" class="form__input" value="<?= $redirected_to_form1 && isset($_SESSION['fld_tel']) ? $_SESSION['fld_tel'] : '' ?>" autocomplete="tel">
       </div>
       <p class="form__privacyText">このフォームから送信された情報は、 プライバシーポリシーに基づいて処理されます。</p>
       <input type="hidden" name="token" value="<?=$_SESSION['token'] ?>">
@@ -369,28 +376,35 @@ require_once 'header.php';
         <img src="images/whitepaper.png" class="section-form__image wow fadeIn" alt="サービス資料の一部の画像。業務改善事例や介護派遣導入事例が掲載。">
       </div>
       <form id="form2" action="process-form.php" class="section-form__form form" method="POST">
+        <?php
+          if(isset($_SESSION['fld_sectionID']) && $_SESSION['fld_sectionID'] == 'section-form'){
+            $redirected_to_form2 = true;
+          }else{
+            $redirected_to_form2 =  false;
+          }
+        ?>
         <p class="form__lead">派遣事例が分かる資料をダウンロード!!</p>
         <div class="form__twoInputGroup">
           <div class="form__inputGroup w-50">
             <label for="fld_lastName" class="form__label">姓</label>
-            <input type="text" name="fld_lastName" id="fld_lastName" class="form__input" value="<?= $_SESSION['fld_lastName'] ?? '' ?>" autocomplete="family-name">
+            <input type="text" name="fld_lastName" id="fld_lastName" class="form__input" value="<?= $redirected_to_form2 && isset($_SESSION['fld_lastName']) ? $_SESSION['fld_lastName'] : '' ?>" autocomplete="family-name">
           </div>
           <div class="form__inputGroup w-50">
             <label for="fld_firstName" class="form__label">名</label>
-            <input type="text" name="fld_firstName" id="fld_firstName" class="form__input" value="<?= $_SESSION['fld_firstName'] ?? '' ?>" autocomplete="given-name">
+            <input type="text" name="fld_firstName" id="fld_firstName" class="form__input" value="<?= $redirected_to_form2 && isset($_SESSION['fld_firstName']) ? $_SESSION['fld_firstName'] : '' ?>" autocomplete="given-name">
           </div>
         </div>
         <div class="form__inputGroup">
           <label for="fld_company" class="form__label">会社名</label>
-          <input type="text" name="fld_company" id="fld_company" class="form__input" value="<?= $_SESSION['fld_company'] ?? '' ?>" autocomplete="organization">
+          <input type="text" name="fld_company" id="fld_company" class="form__input" value="<?= $redirected_to_form2 && isset($_SESSION['fld_company']) ? $_SESSION['fld_company'] : '' ?>" autocomplete="organization">
         </div>
         <div class="form__inputGroup">
           <label for="fld_email" class="form__label">メールアドレス</label>
-          <input type="email" name="fld_email" id="fld_email" class="form__input" value="<?= $_SESSION['fld_email'] ?? '' ?>" autocomplete="email">
+          <input type="email" name="fld_email" id="fld_email" class="form__input" value="<?= $redirected_to_form2 && isset($_SESSION['fld_email']) ? $_SESSION['fld_email'] : '' ?>" autocomplete="email">
         </div>
         <div class="form__inputGroup">
           <label for="fld_tel" class="form__label">電話番号</label>
-          <input type="tel" name="fld_tel" id="fld_tel" class="form__input" value="<?= $_SESSION['fld_tel'] ?? '' ?>" autocomplete="tel">
+          <input type="tel" name="fld_tel" id="fld_tel" class="form__input" value="<?= $redirected_to_form2 && isset($_SESSION['fld_tel']) ? $_SESSION['fld_tel'] : '' ?>" autocomplete="tel">
         </div>
         <p class="form__privacyText">このフォームから送信された情報は、 プライバシーポリシーに基づいて処理されます。</p>
         <input type="hidden" name="token" value="<?=$_SESSION['token'] ?>">
