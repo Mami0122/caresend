@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     spaceBetween: 63,
     loop: true,
     autoplay: {
-      delay: 1500, // 3秒ごとにスライド
+      delay: 1500,
     },
     speed: 1500,
 
@@ -143,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
     burger.setAttribute('aria-expanded', false);
     mobileMenu.setAttribute('aria-hidden', true);
     burger.setAttribute('aria-label', 'メニューを開く');
+    //バーガーが開いてたら閉じる
+    burger.classList.contains('open') && burger.classList.remove('open');
   }
 
     const mediaQueryList = window.matchMedia('(width  > 1024px)');
@@ -150,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
     mediaQueryList.addEventListener('change', (e)=>{
       if(e.matches && mobileMenu.classList.contains('active')){
        closeMobileMenu();
-       burger.classList.remove('open');
       }
     });
 
@@ -158,8 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   for (const MobileMenuItem of mobileMenuItems) {
     MobileMenuItem.addEventListener('click', function () {
-      mobileMenu.classList.remove('active');
-      burger.classList.remove('open'); 
+      closeMobileMenu();
     })
   }
  
