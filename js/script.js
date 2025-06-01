@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     easing: 'ease-out'
   }
 
-  const SPEED = 0.75;
+  const SPEED = 0.8;
 
   summaries.forEach((summary) => {
     summary.addEventListener('click', (e) => {
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const answer = details.querySelector('.js-faqAnswer');
       const height = answer.offsetHeight;
 
-      const duration = Math.max(300, height / SPEED);
+      const duration = Math.max(300, Math.min(680, height / SPEED));
 
       if (details.open) {
         closingAnimationTiming.duration = duration;
