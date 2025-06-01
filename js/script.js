@@ -168,14 +168,15 @@ document.addEventListener("DOMContentLoaded", function () {
   forms.forEach((form)=>{
     const inputs = form.querySelectorAll('input');
     const submitButton = form.querySelector('button');
-    const inputFilledCheck = [];
 
     function checkInputs(){
       let inputCheck = true;
 
       inputs.forEach((input)=>{
-        if(input.value.trim() === ''){
-          inputCheck = false;
+        if(input.type !== 'hidden'){
+          if(input.value.trim() === ''){
+            inputCheck = false;
+          }
         }
       })  
       submitButton.disabled = !inputCheck;
@@ -183,20 +184,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     inputs.forEach((input)=>{
       input.addEventListener('input',checkInputs);
-
-      // リダイレクト時に全フィールド埋められている場合はボタン有効化
-      if(input.type !== 'hidden'){
-        if(input.value.trim() == ""){
-          inputFilledCheck.push(false);
-        }else{
-          inputFilledCheck.push(true);
-        }
-      }
     });
 
-    if(!inputFilledCheck.includes(false)){
-      submitButton.disabled = false;
-    }
+    //バリデーションエラーでリダイレクト時の為に初期状態でも実行
+    checkInputs();
   });
 
 });
