@@ -74,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
 
   const closingAnimationTiming = {
-    duration: 300,
-    easing: 'ease-in'
+    easing: 'ease-out'
   }
 
   const openingAnimationTiming = {
-    duration: 300,
     easing: 'ease-out'
   }
+
+  const SPEED = 0.75;
 
   summaries.forEach((summary) => {
     summary.addEventListener('click', (e) => {
@@ -89,18 +89,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const details = e.currentTarget.parentElement;
       const answer = details.querySelector('.js-faqAnswer');
+      const height = answer.offsetHeight;
+
+      const duration = Math.max(300, height / SPEED);
 
       if (details.open) {
-        if(window.innerWidth >= 768 && answer.offsetHeight >= 250 ){
-          closingAnimationTiming.duration = 500;
-        }else if(window.innerWidth <= 767 && answer.offsetHeight >= 500){
-          closingAnimationTiming.duration = 700;
-        }else{
-          closingAnimationTiming.duration = 300;
-        }
+        closingAnimationTiming.duration = duration;
 
         const closeAnimObj = answer.animate(closingAnimation(answer), closingAnimationTiming);
-
         closeAnimObj.onfinish = () => {
           details.removeAttribute('open');
         };
@@ -108,14 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         details.setAttribute('open', true);
 
-        if(window.innerWidth >= 768 && answer.offsetHeight >= 250 ){
-          openingAnimationTiming.duration = 500;
-        }else if(window.innerWidth <= 767 && answer.offsetHeight >= 500){
-          openingAnimationTiming.duration = 650;
-        }else{
-          openingAnimationTiming.duration = 300;
-        }
-        
+        openingAnimationTiming.duration = duration;
         answer.animate(openingAnimation(answer), openingAnimationTiming);
       }
     });
